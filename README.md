@@ -1,2 +1,2 @@
-# dust
+# Dust
 Specification Library for PHP
