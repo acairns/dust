@@ -16,15 +16,10 @@ final class Criteria implements Specification
 
     public function isSatisfiedBy($item): bool
     {
-        try {
-            array_walk($this->specifications, static function(Specification $specification) use ($item) {
-                if (! $specification->isSatisfiedBy($item)) {
-                    throw new \RuntimeException();
-                }
-            });
-        }
-        catch (\RuntimeException $exception) {
-            return false;
+        foreach ($this->specifications as $specification) {
+            if (! $specification->isSatisfiedBy($item)) {
+                return false;
+            }
         }
 
         return true;
