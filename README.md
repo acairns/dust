@@ -1,6 +1,6 @@
 # Dust
 
-https://github.com/acairns/dust/actions/workflows/ci.yaml/badge.svg
+[![CI](https://github.com/acairns/dust/actions/workflows/ci.yaml/badge.svg)](https://github.com/acairns/dust/actions)
 
 Specification Library for PHP
 
