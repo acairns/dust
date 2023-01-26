@@ -5,7 +5,9 @@
 Specification Library for PHP
 
 {% note %}
+
 **Note:** Library is currently being developed.
+
 {% endnote %}
 
 ## Requirements
