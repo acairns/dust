@@ -10,6 +10,11 @@
             "Acairns\\Dust\\": "src/"
         }
     },
+    "autoload-dev": {
+        "psr-4": {
+            "Acairns\\Dust\\": "tests/"
+        }
+    },
     "authors": [
         {
             "name": "Andrew Cairns",
