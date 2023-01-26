@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Acairns\Dust;
 
-final class OrSpecification implements Specification
+final class OrCriteria implements Specification
 {
     private Specification $first;
     private Specification $second;

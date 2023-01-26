@@ -8,13 +8,13 @@ use PHPUnit\Framework\TestCase;
 
 class CriteriaTest extends TestCase
 {
-    public function test_it_can_validate_multiple_specifications(): void
+    public function test_it_can_validate_multiple_specifications_and_criteria(): void
     {
         $passing = new StubSpecification(true);
         $failing = new StubSpecification(false);
 
-        $and = new AndSpecification($passing, $passing);
-        $or  = new OrSpecification($passing, $failing);
+        $and = new AndCriteria($passing, $passing);
+        $or  = new OrCriteria($passing, $failing);
 
         $criteria = new Criteria($passing, $and, $or);
 
@@ -28,8 +28,8 @@ class CriteriaTest extends TestCase
         $passing = new StubSpecification(true);
         $failing = new StubSpecification(false);
 
-        $and = new AndSpecification($passing, $passing);
-        $or  = new OrSpecification($passing, $failing);
+        $and = new AndCriteria($passing, $passing);
+        $or  = new OrCriteria($passing, $failing);
 
         $criteria = new Criteria($passing, $and, $or, $failing);
 
@@ -43,8 +43,8 @@ class CriteriaTest extends TestCase
         $passing = new StubSpecification(true);
         $failing = new StubSpecification(false);
 
-        $and = new AndSpecification($passing, $passing);
-        $or  = new OrSpecification($passing, $failing);
+        $and = new AndCriteria($passing, $passing);
+        $or  = new OrCriteria($passing, $failing);
 
         $first = new Criteria($passing, $and, $or);
         $second = new Criteria($passing, $and, $or, $first);

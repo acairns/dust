@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Acairns\Dust;
 
-final class AndSpecification implements Specification
+final class AndCriteria implements Specification
 {
     private Specification $first;
     private Specification $second;

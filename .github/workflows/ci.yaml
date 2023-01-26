@@ -22,6 +22,5 @@ jobs:
           tools: "composer"
       - name: Composer
         run: composer install
-
       - name: Tests
         run: composer test
