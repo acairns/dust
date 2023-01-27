@@ -37,6 +37,22 @@ $criteria = (new Criteria($first, $second))
 $criteria->isSatisfiedBy($something);
 ```
 
+Dust can handle conditional criteria.
+
+But, be careful - it can impact comprehension.
+
+```php
+$true = new StubSpecification(true);
+$false = new StubSpecification(false);
+
+$criteria = (new Criteria($false))      // false
+    ->ifNotThen($true)                  // true
+    ->ifThen($false)                    // false
+    ->or($true);                        // true
+
+$criteria->isSatisfiedBy($something);   // true
+```
+
 
 ## Reading
 

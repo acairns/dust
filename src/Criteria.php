@@ -28,6 +28,20 @@ final class Criteria implements Specification
         );
     }
 
+    public function ifThen(Specification $then): self
+    {
+        return new self(
+            new IfThenCriteria($this, $then)
+        );
+    }
+
+    public function ifNotThen(Specification $then): self
+    {
+        return new self(
+            new IfNotThenCriteria($this, $then)
+        );
+    }
+
     public function isSatisfiedBy($item): bool
     {
         foreach ($this->specifications as $specification) {
