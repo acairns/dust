@@ -20,4 +20,17 @@ class ReadmeTest extends TestCase
 
         self::assertSatisfied($criteria);
     }
+
+    public function test_conditional_usage_example(): void
+    {
+        $true = new StubSpecification(true);
+        $false = new StubSpecification(false);
+
+        $criteria = (new Criteria($false))
+            ->ifNotThen($true)
+            ->ifThen($false)
+            ->or($true);
+
+        self::assertSatisfied($criteria);
+    }
 }
