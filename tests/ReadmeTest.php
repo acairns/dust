@@ -32,8 +32,8 @@ class ReadmeTest extends TestCase
         $false = new StubSpecification(false);
 
         $criteria = (new Criteria($false))
-            ->ifNotThen($true)
-            ->ifThen($false)
+            ->ifNot($true)
+            ->if($false)
             ->or($true);
 
         self::assertSatisfied($criteria);

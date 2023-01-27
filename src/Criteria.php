@@ -41,14 +41,14 @@ final class Criteria implements Specification
         );
     }
 
-    public function ifThen(Specification $then): self
+    public function if(Specification $then): self
     {
         return new self(
             new IfCondition($this, $then)
         );
     }
 
-    public function ifNotThen(Specification $then): self
+    public function ifNot(Specification $then): self
     {
         return new self(
             new IfNotCondition($this, $then)
