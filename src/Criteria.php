@@ -16,12 +16,12 @@ final class Criteria implements Specification
 
     public function and(Specification $specification): Specification
     {
-        return new AndCriteria($specification, $this);
+        return new AndCriteria($this, $specification);
     }
 
     public function or(Specification $specification): Specification
     {
-        return new OrCriteria($specification, $this);
+        return new OrCriteria($this, $specification);
     }
 
     public function isSatisfiedBy($item): bool
