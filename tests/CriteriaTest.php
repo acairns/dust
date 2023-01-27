@@ -71,4 +71,38 @@ class CriteriaTest extends TestCase
 
         self::assertSatisfied($criteria->and($specification));
     }
+
+    public function test_it_checks_simple_not_satisfied_criteria(): void
+    {
+        $true = new StubSpecification(true);
+        $false = new StubSpecification(false);
+
+        $simple = (new Criteria($true))
+            ->not($false);
+
+        self::assertSatisfied($simple);
+
+        $complex = (new Criteria($true))
+            ->not($false)
+            ->and($simple)
+            ->not($simple);
+
+        self::assertNotSatisfied($complex);
+    }
+
+    public function test_it_can_handle_complex_nested_not_criteria(): void
+    {
+        $true = new StubSpecification(true);
+        $false = new StubSpecification(false);
+
+        $simple = (new Criteria($true))
+            ->not($false);
+
+        $complex = (new Criteria($true))
+            ->not($false)
+            ->and($simple)
+            ->not($simple);
+
+        self::assertNotSatisfied($complex);
+    }
 }
