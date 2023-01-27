@@ -14,6 +14,20 @@ final class Criteria implements Specification
         $this->specifications = $specifications;
     }
 
+    public function and(Specification $specification): self
+    {
+        return new self(
+            new AndCriteria($this, $specification)
+        );
+    }
+
+    public function or(Specification $specification): self
+    {
+        return new self(
+            new OrCriteria($this, $specification)
+        );
+    }
+
     public function isSatisfiedBy($item): bool
     {
         foreach ($this->specifications as $specification) {

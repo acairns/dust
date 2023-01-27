@@ -28,9 +28,11 @@ $first = new FirstRuleSpecification();
 $second = new SecondRuleSpecification();
 
 $both = new AndCriteria($first, $second);
-$or = new OrCriteria($first, $second);
+$any = new OrCriteria($first, $second);
 
-$criteria = new Critera($first, $second, $both, $or);
+$criteria = (new Criteria($first, $second))
+    ->and($both)
+    ->or($any);
 
 $criteria->isSatisfiedBy($something);
 ```
@@ -38,5 +40,4 @@ $criteria->isSatisfiedBy($something);
 
 ## Reading
 
-[The original Specification Pattern paper by Martin Fowler and Eric Evans](https://www.martinfowler.com/apsupp/spec.pdf)
-
+- [The original Specification Pattern paper by Martin Fowler and Eric Evans](https://www.martinfowler.com/apsupp/spec.pdf)
