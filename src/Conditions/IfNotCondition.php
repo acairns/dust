@@ -6,7 +6,7 @@ namespace Acairns\Dust\Conditions;
 
 use Acairns\Dust\Specification;
 
-final class IfThenCriteria implements Specification
+final class IfNotCondition implements Specification
 {
     private Specification $given;
     private Specification $then;
@@ -19,8 +19,8 @@ final class IfThenCriteria implements Specification
 
     public function isSatisfiedBy($item): bool
     {
-        if (! $this->given->isSatisfiedBy($item)) {
-            return false;
+        if ($this->given->isSatisfiedBy($item)) {
+            return true;
         }
 
         return $this->then->isSatisfiedBy($item);

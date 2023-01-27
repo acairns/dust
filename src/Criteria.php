@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Acairns\Dust;
 
-use Acairns\Dust\Conditions\IfNotThenCriteria;
-use Acairns\Dust\Conditions\IfThenCriteria;
+use Acairns\Dust\Conditions\IfNotCondition;
+use Acairns\Dust\Conditions\IfCondition;
 use Acairns\Dust\Criteria\AndCriteria;
 use Acairns\Dust\Criteria\NotCriteria;
 use Acairns\Dust\Criteria\OrCriteria;
@@ -44,14 +44,14 @@ final class Criteria implements Specification
     public function ifThen(Specification $then): self
     {
         return new self(
-            new IfThenCriteria($this, $then)
+            new IfCondition($this, $then)
         );
     }
 
     public function ifNotThen(Specification $then): self
     {
         return new self(
-            new IfNotThenCriteria($this, $then)
+            new IfNotCondition($this, $then)
         );
     }
 
