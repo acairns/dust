@@ -28,9 +28,11 @@ $first = new FirstRuleSpecification();
 $second = new SecondRuleSpecification();
 
 $both = new AndCriteria($first, $second);
-$or = new OrCriteria($first, $second);
+$any = new OrCriteria($first, $second);
 
-$criteria = new Critera($first, $second, $both, $or);
+$criteria = (new Criteria($first, $second))
+    ->and($both)
+    ->or($any);
 
 $criteria->isSatisfiedBy($something);
 ```
