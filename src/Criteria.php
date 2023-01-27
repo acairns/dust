@@ -4,6 +4,12 @@ declare(strict_types=1);
 
 namespace Acairns\Dust;
 
+use Acairns\Dust\Conditions\IfNotThenCriteria;
+use Acairns\Dust\Conditions\IfThenCriteria;
+use Acairns\Dust\Criteria\AndCriteria;
+use Acairns\Dust\Criteria\NotCriteria;
+use Acairns\Dust\Criteria\OrCriteria;
+
 final class Criteria implements Specification
 {
     /** @var Specification[] */

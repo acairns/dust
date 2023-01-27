@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Acairns\Dust;
 
+use Acairns\Dust\Criteria\AndCriteria;
+use Acairns\Dust\Criteria\OrCriteria;
+
 class ReadmeTest extends TestCase
 {
     public function test_example_usage_from_readme(): void

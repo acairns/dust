@@ -2,7 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Acairns\Dust;
+namespace Acairns\Dust\Conditions;
+
+use Acairns\Dust\StubSpecification;
+use Acairns\Dust\TestCase;
 
 class IfNotThenCriteriaTest extends TestCase
 {

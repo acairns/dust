@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Acairns\Dust;
+namespace Acairns\Dust\Conditions;
+
+use Acairns\Dust\Specification;
 
 final class IfThenCriteria implements Specification
 {
