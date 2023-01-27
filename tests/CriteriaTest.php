@@ -57,18 +57,18 @@ class CriteriaTest extends TestCase
         $andComposition = $criteria->and($failing);
         $orComposition = $criteria->or($failing);
 
-        self::assertInstanceOf(
-            AndCriteria::class,
-            $andComposition
-        );
-
         self::assertNotSatisfied($andComposition);
-
-        self::assertInstanceOf(
-            OrCriteria::class,
-            $orComposition
-        );
-
         self::assertSatisfied($orComposition);
+    }
+
+    public function test_it_can_support_fluid_interface(): void
+    {
+        $specification = new StubSpecification(true);
+
+        $criteria = (new Criteria($specification))
+            ->and($specification)
+            ->or($specification);
+
+        self::assertSatisfied($criteria->and($specification));
     }
 }
