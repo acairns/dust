@@ -24,15 +24,17 @@ Again, this is in active development - interface will definitely change!
 Still figuring out an intuitive interface, so it's overly verbose until then.
 
 ```php
-$first = new FirstRuleSpecification();
-$second = new SecondRuleSpecification();
+$first = new FirstRule();
+$second = new SecondRule();
+$third = new ThirdRule();
 
 $both = new AndCriteria($first, $second);
 $any = new OrCriteria($first, $second);
 
 $criteria = (new Criteria($first, $second))
     ->and($both)
-    ->or($any);
+    ->or($any)
+    ->not($third);
 
 $criteria->isSatisfiedBy($something);
 ```

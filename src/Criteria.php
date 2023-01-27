@@ -28,6 +28,13 @@ final class Criteria implements Specification
         );
     }
 
+    public function not(Specification $specification): self
+    {
+        return new self(
+            new AndCriteria($this, new NotCriteria($specification))
+        );
+    }
+
     public function ifThen(Specification $then): self
     {
         return new self(

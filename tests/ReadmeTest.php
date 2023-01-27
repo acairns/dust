@@ -10,13 +10,15 @@ class ReadmeTest extends TestCase
     {
         $first = new StubSpecification(true);
         $second = new StubSpecification(true);
+        $third = new StubSpecification(false);
 
         $both = new AndCriteria($first, $second);
         $any = new OrCriteria($first, $second);
 
         $criteria = (new Criteria($first, $second))
             ->and($both)
-            ->or($any);
+            ->or($any)
+            ->not($third);
 
         self::assertSatisfied($criteria);
     }
