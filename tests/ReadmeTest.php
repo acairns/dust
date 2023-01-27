@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace Acairns\Dust;
 
+use Acairns\Dust\Criteria\AndCriteria;
+use Acairns\Dust\Criteria\OrCriteria;
+
 class ReadmeTest extends TestCase
 {
     public function test_example_usage_from_readme(): void
@@ -29,8 +32,8 @@ class ReadmeTest extends TestCase
         $false = new StubSpecification(false);
 
         $criteria = (new Criteria($false))
-            ->ifNotThen($true)
-            ->ifThen($false)
+            ->ifNot($true)
+            ->if($false)
             ->or($true);
 
         self::assertSatisfied($criteria);

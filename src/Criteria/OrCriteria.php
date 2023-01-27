@@ -2,9 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Acairns\Dust;
+namespace Acairns\Dust\Criteria;
 
-final class AndCriteria implements Specification
+use Acairns\Dust\Specification;
+
+final class OrCriteria implements Specification
 {
     private Specification $first;
     private Specification $second;
@@ -18,6 +20,6 @@ final class AndCriteria implements Specification
     public function isSatisfiedBy($item): bool
     {
         return $this->first->isSatisfiedBy($item)
-            && $this->second->isSatisfiedBy($item);
+            || $this->second->isSatisfiedBy($item);
     }
 }

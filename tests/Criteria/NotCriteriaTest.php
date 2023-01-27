@@ -2,7 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Acairns\Dust;
+namespace Acairns\Dust\Criteria;
+
+use Acairns\Dust\StubSpecification;
+use Acairns\Dust\TestCase;
 
 class NotCriteriaTest extends TestCase
 {

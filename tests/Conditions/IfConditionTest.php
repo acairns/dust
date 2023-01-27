@@ -2,9 +2,12 @@
 
 declare(strict_types=1);
 
-namespace Acairns\Dust;
+namespace Acairns\Dust\Conditions;
 
-class IfThenCriteriaTest extends TestCase
+use Acairns\Dust\StubSpecification;
+use Acairns\Dust\TestCase;
+
+class IfConditionTest extends TestCase
 {
     public function test_it_ignores_when_condition_does_not_satisfy(): void
     {
@@ -12,7 +15,7 @@ class IfThenCriteriaTest extends TestCase
         $false = new StubSpecification(false);
 
         self::assertNotSatisfied(
-            new IfThenCriteria($false, $true)
+            new IfCondition($false, $true)
         );
     }
 
@@ -22,11 +25,11 @@ class IfThenCriteriaTest extends TestCase
         $false = new StubSpecification(false);
 
         self::assertNotSatisfied(
-            new IfThenCriteria($true, $false)
+            new IfCondition($true, $false)
         );
 
         self::assertSatisfied(
-            new IfThenCriteria($true, $true)
+            new IfCondition($true, $true)
         );
     }
 }

@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Acairns\Dust;
+namespace Acairns\Dust\Criteria;
+
+use Acairns\Dust\Specification;
 
 final class NotCriteria implements Specification
 {
