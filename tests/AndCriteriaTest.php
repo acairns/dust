@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Acairns\Dust;
 
-use PHPUnit\Framework\TestCase;
-
 class AndCriteriaTest extends TestCase
 {
     public function test_it_passes_when_both_items_are_true(): void
@@ -13,10 +11,8 @@ class AndCriteriaTest extends TestCase
         $first = new StubSpecification(true);
         $second = new StubSpecification(true);
 
-        $criteria = new AndCriteria($first, $second);
-
-        self::assertTrue(
-            $criteria->isSatisfiedBy('anything')
+        self::assertSatisfied(
+            new AndCriteria($first, $second)
         );
     }
 
@@ -25,10 +21,8 @@ class AndCriteriaTest extends TestCase
         $first = new StubSpecification(true);
         $second = new StubSpecification(false);
 
-        $criteria = new AndCriteria($first, $second);
-
-        self::assertFalse(
-            $criteria->isSatisfiedBy('anything')
+        self::assertNotSatisfied(
+            new AndCriteria($first, $second)
         );
     }
 
@@ -37,10 +31,8 @@ class AndCriteriaTest extends TestCase
         $first = new StubSpecification(false);
         $second = new StubSpecification(false);
 
-        $criteria = new AndCriteria($first, $second);
-
-        self::assertFalse(
-            $criteria->isSatisfiedBy('anything')
+        self::assertNotSatisfied(
+            new AndCriteria($first, $second)
         );
     }
 }

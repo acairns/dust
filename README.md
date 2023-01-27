@@ -38,5 +38,4 @@ $criteria->isSatisfiedBy($something);
 
 ## Reading
 
-[The original Specification Pattern paper by Martin Fowler and Eric Evans](https://www.martinfowler.com/apsupp/spec.pdf)
-
+- [The original Specification Pattern paper by Martin Fowler and Eric Evans](https://www.martinfowler.com/apsupp/spec.pdf)
